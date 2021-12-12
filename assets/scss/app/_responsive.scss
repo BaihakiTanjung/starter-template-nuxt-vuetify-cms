@@ -1,0 +1,39 @@
+@import 'include-media';
+
+$breakpoints: (
+  phone: 640px,
+  tablet: 768px,
+  desktop: 1024px,
+) !default;
+
+@include media('<desktop') {
+  .is-mobile {
+    display: none !important;
+  }
+
+  .page-title {
+    font-size: 1em;
+  }
+
+  .v-card {
+    width: 100%;
+  }
+}
+
+@include media('>desktop') {
+  .is-dekstop {
+    display: none !important;
+  }
+
+  .auth {
+    .v-card {
+      width: 600px;
+    }
+  }
+
+  .error-404 {
+    .v-card {
+      width: 600px;
+    }
+  }
+}

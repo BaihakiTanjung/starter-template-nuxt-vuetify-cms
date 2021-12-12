@@ -1,0 +1,17 @@
+// Ref: https://github.com/nuxt-community/vuetify-module#customvariables
+//
+
+// Fonts
+@font-face {
+  font-family: 'Gotham Rounded';
+  src: url('~assets/fonts/gotham-rounded/GothamRounded-Book.otf');
+}
+
+// The variables you want to modify
+$body-font-family: 'Gotham Rounded';
+$font-size-root: 14px;
+$container-max-widths: (
+  'md': 1100px,
+  'lg': 1310px,
+  'xl': 1440px
+);

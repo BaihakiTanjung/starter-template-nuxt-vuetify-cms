@@ -1,0 +1,19 @@
+body {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.v-navigation-drawer__border {
+  background-color: transparent !important;
+}
+
+.error-404 {
+  background-color: $primary;
+}
+
+@import 'page/auth';
+@import 'page/login';
+@import 'page/forgot-password';
