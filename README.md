@@ -1,4 +1,4 @@
-# nuxt-vuetify-boilerplate
+# starter-template-nuxt-vuetify-cms
 Boilerplate nuxt dengan vuetify dengan segala ekosistemnya
 
 ## Folder structure
