@@ -6,15 +6,15 @@ export default {
   head: {
     title: 'Sitama PKP',
     htmlAttrs: {
-      lang: 'id'
+      lang: 'id',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -34,7 +34,7 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -42,8 +42,10 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/auth-next',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
   ],
+
+  ssr: false,
 
   auth: {
     strategies: {
@@ -52,44 +54,44 @@ export default {
           property: 'content.access_token',
           global: true,
           required: true,
-          type: 'Bearer'
+          type: 'Bearer',
         },
         user: {
-          property: false // here should be `false`, as you defined in user endpoint `propertyName`
+          property: false, // here should be `false`, as you defined in user endpoint `propertyName`
           // autoFetch: true
         },
         endpoints: {
           login: {
             url: '/api/login',
             method: 'post',
-            propertyName: false
+            propertyName: false,
           },
           user: {
             url: '/api/auth/user',
             method: 'get',
-            propertyName: false
+            propertyName: false,
           },
           logout: {
             url: '/api/auth/logout',
             method: 'post',
-            propertyName: false
-          }
-        }
-      }
-    }
+            propertyName: false,
+          },
+        },
+      },
+    },
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     headers: {
       common: {
-        Accept: 'application/json'
-      }
+        Accept: 'application/json',
+      },
     },
     // credentials: true,
     baseURL: development
       ? 'http://localhost:8005'
-      : 'https://services-vehiclo.sitama.co.id'
+      : 'https://services-vehiclo.sitama.co.id',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -106,7 +108,7 @@ export default {
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
-          warning: '#FFC107'
+          warning: '#FFC107',
         },
         dark: {
           primary: '#1869ac',
@@ -115,13 +117,13 @@ export default {
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
-          warning: '#FFC107'
-        }
-      }
-    }
+          warning: '#FFC107',
+        },
+      },
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-  extends: ['@nuxtjs']
+  extends: ['@nuxtjs'],
 }

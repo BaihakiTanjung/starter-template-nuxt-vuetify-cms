@@ -1,41 +1,27 @@
 <template>
-  <!-- App.vue -->
+  <v-app>
+    <v-navigation-drawer v-model="drawer" app dark color="primary">
+      <LayoutsTheSideBar></LayoutsTheSideBar>
+    </v-navigation-drawer>
 
-  <!-- <v-navigation-drawer app> -->
-  <!-- -->
-  <!-- </v-navigation-drawer> -->
-  <v-app class="main">
-    <v-row>
-      <v-col class="is-mobile" md="3">
-        <LayoutsTheSideBar></LayoutsTheSideBar>
-      </v-col>
-      <v-col md="9">
-        <!-- App Bar -->
-        <LayoutsTheAppBar></LayoutsTheAppBar>
-        <!-- End App Bar -->
+    <LayoutsTheAppBar @sidebar="handleSidebar"></LayoutsTheAppBar>
 
-        <!-- Sizes your content based upon application components -->
-        <v-main>
-          <!-- Provides the application the proper gutter -->
-          <v-container>
-            <!-- If using vue-router -->
-            <nuxt />
-          </v-container> </v-main
-      ></v-col>
-    </v-row>
-
-    <v-footer app>
-      <!-- -->
-    </v-footer>
+    <v-main>
+      <v-container fluid>
+        <!-- If using vue-router -->
+        <router-view></router-view>
+      </v-container>
+    </v-main>
   </v-app>
 </template>
 
 <script>
 export default {
+  layout: 'blank',
   data() {
     return {
       clipped: false,
-      drawer: false,
+      drawer: true,
       fixed: false,
       items: [
         {
@@ -53,7 +39,26 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js',
+      user: {
+        initials: 'JD',
+        fullName: 'John Doe',
+        email: 'john.doe@doe.com'
+      },
+      // drawer: null
+    }
+  },
+  methods: {
+    handleSidebar(val) {
+      this.drawer = val
+    },
+    logout() {
+      console.log('logout')
     }
   },
 }
 </script>
+<style lang="scss" scoped>
+.v-card {
+  border-radius: 0px 20px 20px 0;
+}
+</style>

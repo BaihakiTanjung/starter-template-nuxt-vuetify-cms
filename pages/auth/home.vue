@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="d-flex h-100 justify-center mt-15">
-      <h1>❤️ Welcome to PKP ❤️</h1>
+      <h1>❤️ Welcome to Template Nuxt + Vuetify ❤️</h1>
     </div>
   </div>
 </template>

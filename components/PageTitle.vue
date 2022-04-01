@@ -1,5 +1,7 @@
 <template>
-  <h1 class="page-title"><slot></slot></h1>
+  <h2 class="page-title ml-2">
+    <slot></slot>
+  </h2>
 </template>
 <style lang="scss">
 h1 {
