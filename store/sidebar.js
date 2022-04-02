@@ -1,22 +1,32 @@
 export const state = () => ({
   items: [
-    { title: 'Menu', to: '/auth/home', icon: 'mdi-home' },
+    { title: 'Home', to: '/auth/home', icon: 'mdi-home' },
+    { title: 'About', to: '/auth/about', icon: 'mdi-account' },
+    { title: 'Fetch', to: '/auth/fetch', icon: 'mdi-restart' },
     {
       title: 'Dropdown',
       to: '/auth/about',
-      icon: 'mdi-account-circle',
+      icon: 'mdi-form-dropdown',
       children: [
-        { title: 'Dropdown 1', to: '/auth/home', icon: 'mdi-home' },
+        { title: 'Dropdown 1', to: '/auth/home', icon: 'mdi-form-dropdown' },
         {
           title: 'Dropdown 2',
           to: '/auth/home',
-          icon: 'mdi-home',
+          icon: 'mdi-form-dropdown',
           children: [
-            { title: 'Dropdown 2.1', to: '/auth/home', icon: 'mdi-home' },
-            { title: 'Dropdown 2.2', to: '/auth/home', icon: 'mdi-home' },
+            {
+              title: 'Dropdown 2.1',
+              to: '/auth/home',
+              icon: 'mdi-form-dropdown',
+            },
+            {
+              title: 'Dropdown 2.2',
+              to: '/auth/home',
+              icon: 'mdi-form-dropdown',
+            },
           ],
         },
-        { title: 'Dropdown 2', to: '/auth/home', icon: 'mdi-home' },
+        { title: 'Dropdown 2', to: '/auth/home', icon: 'mdi-form-dropdown' },
       ],
     },
   ],

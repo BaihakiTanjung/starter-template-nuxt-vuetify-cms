@@ -2,7 +2,7 @@
   <v-app-bar flat app>
     <v-app-bar-nav-icon @click="handleSidebar"></v-app-bar-nav-icon>
 
-    <PageTitle>Testing</PageTitle>
+    <PageTitle>{{ pageTitle || 'Page' }}</PageTitle>
 
     <v-spacer></v-spacer>
 
@@ -43,7 +43,7 @@
             <v-divider class="my-3"></v-divider>
             <v-btn depressed rounded text>Edit Account</v-btn>
             <v-divider class="my-3"></v-divider>
-            <v-btn depressed rounded text @click="logout">Disconnect</v-btn>
+            <v-btn depressed rounded text @click="logout">Logout</v-btn>
           </div>
         </v-list-item-content>
       </v-card>
@@ -68,14 +68,7 @@ export default {
       return this.$store.state.pageTitle
     },
   },
-  mounted() {
-    const theme = localStorage.getItem('useDarkTheme')
-    if (theme) {
-      if (theme === 'true') {
-        this.$vuetify.theme.dark = true
-      } else this.$vuetify.theme.dark = false
-    }
-  },
+
   methods: {
     async logout() {
       await this.$auth.logout()

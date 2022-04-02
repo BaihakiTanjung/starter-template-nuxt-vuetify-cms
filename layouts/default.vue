@@ -46,6 +46,14 @@ export default {
       // drawer: null
     }
   },
+  mounted() {
+    const theme = localStorage.getItem('useDarkTheme')
+    if (theme) {
+      if (theme === 'true') {
+        this.$vuetify.theme.dark = true
+      } else this.$vuetify.theme.dark = false
+    }
+  },
   methods: {
     handleSidebar(val) {
       this.drawer = val

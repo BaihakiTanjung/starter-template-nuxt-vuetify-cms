@@ -11,3 +11,15 @@
     </v-app>
   </div>
 </template>
+<script>
+export default {
+  mounted() {
+    const theme = localStorage.getItem('useDarkTheme')
+    if (theme) {
+      if (theme === 'true') {
+        this.$vuetify.theme.dark = true
+      } else this.$vuetify.theme.dark = false
+    }
+  },
+}
+</script>

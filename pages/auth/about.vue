@@ -1,8 +1,9 @@
+
 <template>
   <div>
     <v-row>
       <v-col>
-        <h1 class="text-center">❤️ Welcome to Template Nuxt + Vuetify ❤️</h1>
+        <h1 class="text-center">❤️ About ❤️</h1>
       </v-col>
     </v-row>
   </div>
@@ -15,7 +16,7 @@ export default {
   setup() {
     const store = useStore()
 
-    store.commit('setPageTitle', 'Home')
+    store.commit('setPageTitle', 'About')
   },
 }
 </script>

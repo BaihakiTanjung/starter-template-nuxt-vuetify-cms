@@ -14,7 +14,7 @@
             </template>
             <template #content>
               <div class="error-404-content my-10">
-                <img src="~assets/images/404.svg" alt="404" srcset="" />
+                <img src="~assets/images/404.svg" width="350" alt="404" />
               </div>
             </template>
             <template #action>
@@ -31,7 +31,7 @@
     <section v-else class="error-404 primary h-100 d-flex justify-center">
       <div class="my-auto">
         <v-container fluid>
-          <BaseCard class="text-center mt-10">
+          <BaseCard class="text-center">
             <template #header>
               <div class="login-head">
                 <h1 class="display-2 font-weight-bold">{{ otherError }}</h1>
@@ -39,12 +39,15 @@
             </template>
             <template #content>
               <div class="error-404-content my-10">
-                <img src="~assets/images/404.svg" alt="404" srcset="" />
+                <img src="~assets/images/error.svg" width="350" alt="error" />
               </div>
             </template>
             <template #action>
               <div class="forgot-password-button">
-                <BaseButton to="/auth/home" x-large>Back To Home</BaseButton>
+                <p>{{ error.message }}</p>
+                <BaseButton @click="handleReload" x-large
+                  >Reload Page</BaseButton
+                >
               </div>
             </template>
           </BaseCard>
@@ -60,22 +63,37 @@ export default {
   props: {
     error: {
       type: Object,
-      default: null
-    }
+      default: null,
+    },
   },
   data() {
     return {
       pageNotFound: '404 Not Found',
-      otherError: 'An error occurred'
+      otherError: 'An error occurred',
     }
   },
   head() {
     const title =
       this.error.statusCode === 404 ? this.pageNotFound : this.otherError
     return {
-      title
+      title,
     }
-  }
+  },
+  mounted() {
+    console.log(this.$router)
+
+    const theme = localStorage.getItem('useDarkTheme')
+    if (theme) {
+      if (theme === 'true') {
+        this.$vuetify.theme.dark = true
+      } else this.$vuetify.theme.dark = false
+    }
+  },
+  methods: {
+    handleReload() {
+      location.reload()
+    },
+  },
 }
 </script>
 

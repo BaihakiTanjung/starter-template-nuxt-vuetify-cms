@@ -1,5 +1,6 @@
-import userServices from '@/api/services/userServices'
+import Api from '@/api/Api.js'
 
-export default ($axios, inject) => {
-  inject('userServices', userServices($axios))
+export default ({ $axios }, inject) => {
+  Api.$axios = $axios
+  inject('Api', Api)
 }

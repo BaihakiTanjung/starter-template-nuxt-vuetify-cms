@@ -9,8 +9,8 @@
     </v-list-item>
 
     <v-list dense nav rounded>
-      <div v-for="item in items" :key="item.title" :to="item.to">
-        <v-list-item v-if="!item.children" rounded link>
+      <div v-for="item in items" :key="item.title">
+        <v-list-item v-if="!item.children" :to="item.to" rounded link>
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -31,7 +31,7 @@
           </template>
 
           <div v-for="child in item.children" :key="child.title">
-            <v-list-item v-if="!child.children" rounded link>
+            <v-list-item v-if="!child.children" rounded link :to="child.to">
               <v-list-item-icon>
                 <v-icon>{{ child.icon }}</v-icon>
               </v-list-item-icon>
@@ -51,7 +51,12 @@
               </template>
 
               <div v-for="child2 in child.children" :key="child2.title">
-                <v-list-item v-if="!child2.children" rounded link>
+                <v-list-item
+                  v-if="!child2.children"
+                  :to="child2.to"
+                  rounded
+                  link
+                >
                   <v-list-item-icon>
                     <v-icon>{{ child.icon }}</v-icon>
                   </v-list-item-icon>
@@ -85,6 +90,4 @@ export default {
 .v-card {
   border-radius: 0px 20px 20px 0 !important;
 }
-
-
 </style>
