@@ -1,14 +1,13 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="drawer" app dark color="primary">
+    <v-navigation-drawer v-model="drawer" app>
       <LayoutsTheSideBar></LayoutsTheSideBar>
     </v-navigation-drawer>
 
     <LayoutsTheAppBar @sidebar="handleSidebar"></LayoutsTheAppBar>
 
     <v-main>
-      <v-container fluid>
-        <!-- If using vue-router -->
+      <v-container>
         <router-view></router-view>
       </v-container>
     </v-main>
@@ -42,7 +41,7 @@ export default {
       user: {
         initials: 'JD',
         fullName: 'John Doe',
-        email: 'john.doe@doe.com'
+        email: 'john.doe@doe.com',
       },
       // drawer: null
     }
@@ -53,7 +52,7 @@ export default {
     },
     logout() {
       console.log('logout')
-    }
+    },
   },
 }
 </script>

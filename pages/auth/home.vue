@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="d-flex h-100 justify-center mt-15">
+    <div class="d-flex h-100 justify-center mt-5">
       <h1>❤️ Welcome to Template Nuxt + Vuetify ❤️</h1>
     </div>
   </div>

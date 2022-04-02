@@ -12,16 +12,17 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxtjs/auth-next": "^5.0.0-1647967358.de1bb0f",
+    "@nuxtjs/auth-next": "^5.0.0-1648802546.c9880dc",
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/composition-api": "^0.32.0",
     "@nuxtjs/dotenv": "^1.4.1",
+    "@pinia/nuxt": "^0.1.8",
     "core-js": "^3.21.1",
     "include-media": "^1.4.10",
     "nuxt": "^2.15.8",
-    "nuxt-dropzone": "^1.0.4",
+    "pinia": "^2.0.13",
     "vue-loading-overlay": "^3.4.2",
-    "vuetify": "^2.6.4",
-    "xlsx": "^0.17.5"
+    "vuetify": "^2.6.4"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
@@ -37,8 +38,8 @@
     "eslint-plugin-vue": "^7.20.0",
     "jest": "^27.5.1",
     "prettier": "^2.6.1",
-    "prop-types": "^15.6.0",
-    "sass": "^1.49.9",
+    "prop-types": "^15.8.1",
+    "sass": "^1.49.11",
     "sass-loader": "^10.2.1",
     "vue-jest": "^3.0.7"
   },

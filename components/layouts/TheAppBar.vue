@@ -1,10 +1,18 @@
 <template>
-  <v-app-bar color="white" flat app>
+  <v-app-bar flat app>
     <v-app-bar-nav-icon @click="handleSidebar"></v-app-bar-nav-icon>
 
     <PageTitle>Testing</PageTitle>
 
     <v-spacer></v-spacer>
+
+    <v-btn icon @click="toggleTheme">
+      <v-icon>{{
+        $vuetify.theme.dark
+          ? 'mdi-moon-waxing-crescent'
+          : 'mdi-white-balance-sunny'
+      }}</v-icon>
+    </v-btn>
 
     <v-btn icon>
       <v-badge content="1" value="1" bottom color="red" overlap>
@@ -48,9 +56,9 @@ export default {
     user: {
       initials: 'JD',
       fullName: 'John Doe',
-      email: 'john.doe@doe.com'
+      email: 'john.doe@doe.com',
     },
-    drawer: null
+    drawer: null,
   }),
   computed: {
     items() {
@@ -58,6 +66,14 @@ export default {
     },
     pageTitle() {
       return this.$store.state.pageTitle
+    },
+  },
+  mounted() {
+    const theme = localStorage.getItem('useDarkTheme')
+    if (theme) {
+      if (theme === 'true') {
+        this.$vuetify.theme.dark = true
+      } else this.$vuetify.theme.dark = false
     }
   },
   methods: {
@@ -66,8 +82,12 @@ export default {
       this.$router.push('/login')
     },
     handleSidebar() {
-      this.$emit('sidebar', this.drawer = !this.drawer)
-    }
-  }
+      this.$emit('sidebar', (this.drawer = !this.drawer))
+    },
+    toggleTheme() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+      localStorage.setItem('useDarkTheme', this.$vuetify.theme.dark.toString())
+    },
+  },
 }
 </script>

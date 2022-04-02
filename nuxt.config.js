@@ -1,10 +1,12 @@
 // import colors from 'vuetify/es5/util/colors'
-const development = process.env.NODE_ENV !== 'production'
+// const nodeEnv = process.env.NODE_ENV
+const baseUrl = process.env.BASE_URL || 'http://localhost:3000'
+const appTitle = process.env.APP_TITLE
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Sitama PKP',
+    title: appTitle,
     htmlAttrs: {
       lang: 'id',
     },
@@ -35,6 +37,8 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/composition-api/module',
+    ['@pinia/nuxt', { disableVuex: false }],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -46,6 +50,7 @@ export default {
   ],
 
   ssr: false,
+  target: 'static',
 
   auth: {
     strategies: {
@@ -89,9 +94,7 @@ export default {
       },
     },
     // credentials: true,
-    baseURL: development
-      ? 'http://localhost:8005'
-      : 'https://services-vehiclo.sitama.co.id',
+    baseURL: baseUrl,
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -103,21 +106,21 @@ export default {
       themes: {
         light: {
           primary: '#1869ac',
-          secondary: '#424242',
-          accent: '#82B1FF',
-          error: '#FF5252',
-          info: '#2196F3',
-          success: '#4CAF50',
-          warning: '#FFC107',
+          secondary: '#00DC82',
+          accent: '#00bcd4',
+          error: '#f44336',
+          warning: '#ffc107',
+          info: '#009688',
+          success: '#4caf50',
         },
         dark: {
           primary: '#1869ac',
-          secondary: '#424242',
-          accent: '#82B1FF',
-          error: '#FF5252',
-          info: '#2196F3',
-          success: '#4CAF50',
-          warning: '#FFC107',
+          secondary: '#00DC82',
+          accent: '#00bcd4',
+          error: '#f44336',
+          warning: '#ffc107',
+          info: '#009688',
+          success: '#4caf50',
         },
       },
     },

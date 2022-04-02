@@ -14,6 +14,10 @@ a {
   background-color: $primary;
 }
 
+.v-navigation-drawer {
+  background: transparent !important;
+}
+
 @import 'page/auth';
 @import 'page/login';
 @import 'page/forgot-password';
