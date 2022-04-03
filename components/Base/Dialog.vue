@@ -2,7 +2,8 @@
   <v-dialog
     v-model="dialog"
     transition="dialog-bottom-transition"
-    max-width="500"
+    :max-width="maxWidth"
+    v-bind="$attrs"
   >
     <v-card :class="className">
       <slot></slot>
@@ -14,12 +15,16 @@ export default {
   props: {
     className: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
+    maxWidth: {
+      type: Number,
+      default: 500,
+    },
   },
   data() {
     return {
-      dialog: false
+      dialog: false,
     }
   },
   methods: {
@@ -28,7 +33,16 @@ export default {
     },
     close() {
       this.dialog = false
+    },
+  },
+}
+</script>
+<style lang="scss" scoped>
+.theme--light {
+  .v-dialog {
+    .v-card {
+      background-color: #f8f8f8 !important;
     }
   }
 }
-</script>
+</style>

@@ -80,8 +80,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$router)
-
     const theme = localStorage.getItem('useDarkTheme')
     if (theme) {
       if (theme === 'true') {

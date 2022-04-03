@@ -33,7 +33,6 @@ export default {
   },
   methods: {
     handleInput(e) {
-      // console.log(e)
       this.$emit('input', e)
     }
   }

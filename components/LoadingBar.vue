@@ -31,12 +31,12 @@ export default {
   },
   methods: {
     start() {
-      this.$store.commit('setLoading', true)
-      // mapMutations(['setLoading']),
+      this.$store.commit('SET_LOADING', true)
+      // mapMutations(['SET_LOADING']),
     },
     finish() {
       setTimeout(() => {
-        this.$store.commit('setLoading', false)
+        this.$store.commit('SET_LOADING', false)
       }, 1000)
     },
   },

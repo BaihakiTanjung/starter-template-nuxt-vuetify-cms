@@ -15,7 +15,7 @@ export default {
   setup() {
     const store = useStore()
 
-    store.commit('setPageTitle', 'Home')
+    store.commit('SET_PAGE_TITLE', 'Home')
   },
 }
 </script>

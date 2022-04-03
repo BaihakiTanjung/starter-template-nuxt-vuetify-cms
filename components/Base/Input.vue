@@ -1,58 +1,37 @@
 <template>
   <v-text-field
-    :solo="solo"
-    :rounded="rounded"
     :type="type"
     :label="label"
     :append-icon="appendIcon"
-    :dense="dense"
-    :persistent-hint="persistentHint"
     :value="value"
-    @input="handleInput"
+    v-bind="$attrs"
+    v-on="$listeners"
   ></v-text-field>
 </template>
 <script>
 export default {
   name: 'BaseInput',
   props: {
-    solo: {
-      type: Boolean,
-      default: false
-    },
-    rounded: {
-      type: Boolean,
-      default: false
-    },
     label: {
       type: String,
-      default: ''
+      default: '',
     },
     appendIcon: {
       type: String,
-      default: ''
-    },
-    dense: {
-      type: Boolean,
-      default: false
+      default: '',
     },
     value: {
       type: String,
-      default: ''
+      default: '',
     },
     persistentHint: {
       type: Boolean,
-      default: false
+      default: false,
     },
     type: {
       type: String,
-      default: 'text'
-    }
+      default: 'text',
+    },
   },
-  methods: {
-    handleInput(e) {
-      // console.log(e)
-      this.$emit('input', e)
-    }
-  }
 }
 </script>

@@ -1,16 +1,14 @@
 <template>
   <v-card
-    :elevation="elevation"
-    :flat="flat"
+    v-bind="$attrs"
     :loading="loading"
     class="pa-15"
     :width="width"
     max-width="1000"
   >
-    <slot name="header"></slot>
-    <slot name="content"></slot>
-    <slot name="action"></slot>
-    <slot name="footer"></slot>
+    <template v-for="slot in Object.keys($scopedSlots)">
+      <slot :name="slot"></slot>
+    </template>
   </v-card>
 </template>
 <script>
@@ -19,31 +17,19 @@ export default {
   props: {
     width: {
       type: String,
-      default: 'auto'
+      default: '100%',
     },
     elevation: {
       type: Number,
-      default: 1
+      default: 1,
     },
-    flat: {
-      type: Boolean,
-      default: false
-    }
   },
   data() {
     return {
       loading: false,
-      selection: []
+      selection: [],
     }
   },
-  methods: {
-    reserve() {
-      this.loading = true
-      setTimeout(() => {
-        this.loading = false
-      }, 2000)
-    }
-  }
 }
 </script>
 <style lang="scss" scoped>

@@ -2,7 +2,7 @@
   <div>
     <v-row>
       <v-col>
-        <BaseButton @click="getFetch">Fetch</BaseButton>
+        <BaseButton :loading="loading" @click="getFetch">Fetch</BaseButton>
       </v-col>
     </v-row>
     <v-row>
@@ -14,17 +14,21 @@
   </div>
 </template>
 <script>
-import { computed, useStore } from '@nuxtjs/composition-api'
+import { computed, ref, useStore } from '@nuxtjs/composition-api'
 
 export default {
   // middleware: 'authenticated',
   setup() {
     const store = useStore()
 
-    store.commit('setPageTitle', 'Home')
+    store.commit('SET_PAGE_TITLE', 'Home')
 
+    const loading = ref(false)
     const getFetch = () => {
-      store.dispatch('fetch/getFetch')
+      loading.value = true
+      store.dispatch('fetch/getFetch').finally(() => {
+        loading.value = false
+      })
     }
 
     const items = computed(() => store.state.fetch.items)
@@ -32,10 +36,11 @@ export default {
     return {
       getFetch,
       items,
+      loading,
     }
   },
   mounted() {
-    this.$store.commit('setPageTitle', 'Home')
+    this.$store.commit('SET_PAGE_TITLE', 'Home')
   },
 }
 </script>
