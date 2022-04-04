@@ -17,7 +17,7 @@
 import { computed, ref, useStore } from '@nuxtjs/composition-api'
 
 export default {
-  // middleware: 'authenticated',
+
   setup() {
     const store = useStore()
 

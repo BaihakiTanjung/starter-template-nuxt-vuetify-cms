@@ -45,7 +45,7 @@
             <template #action>
               <div class="forgot-password-button">
                 <p>{{ error.message }}</p>
-                <BaseButton @click="handleReload" x-large
+                <BaseButton x-large @click="handleReload"
                   >Reload Page</BaseButton
                 >
               </div>

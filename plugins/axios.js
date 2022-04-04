@@ -1,14 +1,11 @@
-/* eslint-disable require-await */
-/* eslint-disable camelcase */
-
-export default async ({ $axios, redirect, store, route, error }) => {
+export default ({ $axios, redirect, store, route, error }) => {
   $axios.setBaseURL(process.env.BASE_URL)
 
   $axios.onRequest((config) => {
     store.commit('SET_LOADING', true)
-    const access_token = store.getters['user/access_token']
-    if (access_token) {
-      config.headers.common.Authorization = `Bearer ${access_token}`
+    const accessToken = store.getters['user/access_token']
+    if (accessToken) {
+      config.headers.common.Authorization = `Bearer ${accessToken}`
     }
   })
 

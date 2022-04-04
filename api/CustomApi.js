@@ -1,3 +1,7 @@
+/*
+ * Wrapper Axios Methods Custom Api
+ */
+
 import axios from 'axios'
 import { PREFIX } from './ApiUrl.js'
 
