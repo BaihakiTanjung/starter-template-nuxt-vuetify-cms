@@ -87,7 +87,6 @@ export default {
 
     const submitLogin = () => {
       router.push('/auth/home')
-      this.$refs.form.validate()
     }
 
     return {
@@ -114,12 +113,5 @@ export default {
       }
     },
   },
-
-  // methods: {
-  //   submitLogin() {
-  //     this.$store.commit('SET_LOADING', true)
-  //     this.$router.push('/auth/home')
-  //   },
-  // },
 }
 </script>

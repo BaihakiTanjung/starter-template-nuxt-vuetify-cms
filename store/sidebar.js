@@ -1,7 +1,7 @@
 export const state = () => ({
   items: [
     { title: 'Home', to: '/auth/home', icon: 'mdi-home' },
-    { title: 'About', to: '/auth/about', icon: 'mdi-account' },
+    { title: 'Component', to: '/auth/component', icon: 'mdi-card' },
     { title: 'Fetch', to: '/auth/fetch', icon: 'mdi-restart' },
     {
       title: 'Dropdown',

@@ -6,6 +6,13 @@
     v-bind="$attrs"
   >
     <v-card :class="className">
+      <div class="relative">
+        <div class="absolute" style="right: 0; top: -10px">
+          <v-btn text icon color="red lighten-2" @click="close">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </div>
+      </div>
       <slot></slot>
     </v-card>
   </v-dialog>
@@ -44,5 +51,17 @@ export default {
       background-color: #f8f8f8 !important;
     }
   }
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.right-0 {
+  right: 0;
 }
 </style>

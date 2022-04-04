@@ -7,22 +7,18 @@
       <div class="my-auto">
         <v-container fluid>
           <BaseCard class="text-center">
-            <template #header>
-              <div class="login-head">
-                <h1 class="display-2 font-weight-bold">{{ pageNotFound }}</h1>
-              </div>
-            </template>
-            <template #content>
-              <div class="error-404-content my-10">
-                <img src="~assets/images/404.svg" width="350" alt="404" />
-              </div>
-            </template>
-            <template #action>
-              <div class="error-404-button">
-                <p>{{ error.message }}</p>
-                <BaseButton to="/auth/home" x-large>Back To Home</BaseButton>
-              </div>
-            </template>
+            <div class="login-head">
+              <h1 class="display-2 font-weight-bold">{{ pageNotFound }}</h1>
+            </div>
+
+            <div class="error-404-content my-10">
+              <img src="~assets/images/404.svg" width="350" alt="404" />
+            </div>
+
+            <div class="error-404-button">
+              <p>{{ error.message }}</p>
+              <BaseButton to="/auth/home" x-large>Back To Home</BaseButton>
+            </div>
           </BaseCard>
         </v-container>
       </div>
@@ -32,24 +28,18 @@
       <div class="my-auto">
         <v-container fluid>
           <BaseCard class="text-center">
-            <template #header>
-              <div class="login-head">
-                <h1 class="display-2 font-weight-bold">{{ otherError }}</h1>
-              </div>
-            </template>
-            <template #content>
-              <div class="error-404-content my-10">
-                <img src="~assets/images/error.svg" width="350" alt="error" />
-              </div>
-            </template>
-            <template #action>
-              <div class="forgot-password-button">
-                <p>{{ error.message }}</p>
-                <BaseButton x-large @click="handleReload"
-                  >Reload Page</BaseButton
-                >
-              </div>
-            </template>
+            <div class="login-head">
+              <h1 class="display-2 font-weight-bold">{{ otherError }}</h1>
+            </div>
+
+            <div class="error-404-content my-10">
+              <img src="~assets/images/error.svg" width="350" alt="error" />
+            </div>
+
+            <div class="forgot-password-button">
+              <p>{{ error.message }}</p>
+              <BaseButton x-large @click="handleReload">Reload Page</BaseButton>
+            </div>
           </BaseCard>
         </v-container>
       </div>
