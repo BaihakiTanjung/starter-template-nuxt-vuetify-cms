@@ -3,74 +3,100 @@
     <div class="my-auto">
       <v-container fluid>
         <BaseCard :width="width" class="text-center mt-10">
-          <template #header>
-            <div class="login-head">
-              <h1 class="display-2 font-weight-bold">Masuk</h1>
-            </div>
-          </template>
-          <template #content>
-            <div class="login-content my-8">
-              <div class="email">
-                <BaseInput
-                  ref="email"
-                  v-model="login.email"
-                  solo
-                  rounded
-                  label="Email Anda"
-                ></BaseInput>
+          <validation-observer ref="form" v-slot="{ invalid }">
+            <form @submit.prevent="handleSubmit">
+              <div class="login-head">
+                <h1 class="display-1 font-weight-bold">Selamat Datang</h1>
+                <p class="text-gray font-weight-light mt-2">
+                  Masukkan email dan password anda untuk mengakses akun anda
+                </p>
               </div>
-              <div class="password">
-                <BaseInput
-                  ref="password"
-                  v-model="login.password"
-                  :append-icon="passwordType ? 'mdi-eye' : 'mdi-eye-off'"
-                  :type="passwordType ? 'text' : 'password'"
-                  solo
-                  :rules="passwordRules"
-                  rounded
-                  label="Password Anda"
-                  required
-                  @click:append="passwordType = !passwordType"
-                  @keyup.enter.native="submitLogin"
-                >
-                </BaseInput>
+
+              <div class="login-content mt-10 mb-5">
+                <div class="email">
+                  <BaseInput
+                    ref="email"
+                    v-model="login.email"
+                    outlined
+                    label="Email"
+                    placeholder="Masukkan email anda"
+                    prepend-inner-icon="mdi-email"
+                    rules="required|email"
+                    @keyup.enter.native="submitLogin"
+                  ></BaseInput>
+                </div>
+                <div class="password">
+                  <BaseInput
+                    ref="password"
+                    v-model="login.password"
+                    outlined
+                    prepend-inner-icon="mdi-lock"
+                    :append-icon="passwordType ? 'mdi-eye' : 'mdi-eye-off'"
+                    :type="passwordType ? 'text' : 'password'"
+                    label="Password"
+                    placeholder="Masukkan password anda"
+                    rules="required"
+                    @click:append="passwordType = !passwordType"
+                    @keyup.enter.native="submitLogin"
+                  >
+                  </BaseInput>
+                </div>
               </div>
-            </div>
-          </template>
-          <template #action>
-            <div class="login-button">
-              <div class="captcha my-5">disini tempat captcha</div>
-              <BaseButton x-large @click="submitLogin">Masuk</BaseButton>
-            </div>
-          </template>
-          <template #footer>
-            <div class="login-footer mt-5">
-              <p>
-                Lupa password?
-                <nuxt-link to="/otp-code" class="text-primary"
-                  >Klik di sini</nuxt-link
+
+              <div class="login-button">
+                <BaseButton
+                  :disabled="invalid"
+                  block
+                  x-large
+                  @click="submitLogin"
+                  >Masuk</BaseButton
                 >
-              </p>
-            </div>
-          </template>
+              </div>
+
+              <div class="login-footer mt-5 mb-n5">
+                <p>
+                  Lupa password?
+                  <nuxt-link
+                    to="/forgot-password"
+                    class="text-primary font-weight-bold"
+                    >Klik di sini</nuxt-link
+                  >
+                </p>
+              </div>
+            </form>
+          </validation-observer>
         </BaseCard>
       </v-container>
     </div>
   </section>
 </template>
 <script>
+import { reactive, ref, useRouter } from '@nuxtjs/composition-api'
 export default {
   layout: 'auth',
   // middleware: 'guest',
-  data() {
+  setup() {
+    const router = useRouter()
+
+    const login = reactive({
+      email: '',
+      password: '',
+    })
+
+    const passwordType = ref(false)
+
+    const submitLogin = () => {
+      router.push('/auth/home')
+      this.$refs.form.validate()
+    }
+
     return {
-      login: {
-        email: 'rozorgame12@gmail.com',
-        password: '12345',
-      },
-      passwordType: false,
+      login,
+      passwordType,
+      submitLogin,
     }
   },
+
   computed: {
     // eslint-disable-next-line vue/return-in-computed-property
     width() {
@@ -88,18 +114,12 @@ export default {
       }
     },
   },
-  mounted() {
-    this.focusEmail()
-  },
-  methods: {
-    submitLogin() {
-      this.$store.commit('SET_LOADING', true)
-      this.$router.push('/auth/home')
-    },
-    focusEmail() {
-      this.$refs.email.$el.focus()
-      console.log(this.$refs.email.$el.focus())
-    },
-  },
+
+  // methods: {
+  //   submitLogin() {
+  //     this.$store.commit('SET_LOADING', true)
+  //     this.$router.push('/auth/home')
+  //   },
+  // },
 }
 </script>

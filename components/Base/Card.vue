@@ -6,9 +6,7 @@
     :width="width"
     max-width="1000"
   >
-    <template v-for="slot in Object.keys($scopedSlots)">
-      <slot :name="slot"></slot>
-    </template>
+    <slot></slot>
   </v-card>
 </template>
 <script>
@@ -16,7 +14,7 @@ export default {
   name: 'BaseCard',
   props: {
     width: {
-      type: String,
+      type: [String, Number],
       default: '100%',
     },
     elevation: {

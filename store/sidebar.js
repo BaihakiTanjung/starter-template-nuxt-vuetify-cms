@@ -26,7 +26,7 @@ export const state = () => ({
             },
           ],
         },
-        { title: 'Dropdown 2', to: '/auth/home', icon: 'mdi-form-dropdown' },
+        { title: 'Dropdown 3', to: '/auth/home', icon: 'mdi-form-dropdown' },
       ],
     },
   ],

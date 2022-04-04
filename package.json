@@ -19,6 +19,7 @@
     "core-js": "^3.21.1",
     "include-media": "^1.4.10",
     "nuxt": "^2.15.8",
+    "vee-validate": "3",
     "vue-loading-overlay": "^3.4.2",
     "vuetify": "^2.6.4"
   },
