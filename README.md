@@ -1,24 +1,46 @@
-# starter-template-nuxt-vuetify-cms
-Boilerplate nuxt dengan vuetify dengan segala ekosistemnya
+# Starter Template Nuxt Vuetify CMS
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/904724/59509947-c14eca80-8eb2-11e9-807c-14e7cc72eecc.png" height="250" />
+</p>
+
+Starter template Nuxt 2 and Vuetify, Service Pattern, Composition APi, default page like Login, Forgot Password, OTP Code, and Auth System using Nuxt Auth
+
+Built with:
+* [Nuxt 2](https://nuxtjs.org/)
+* [Nuxt Auth 5](https://auth.nuxtjs.org/)
+* [Nuxt Axios](https://axios.nuxtjs.org/)
+* [Nuxt DotEnv](https://www.npmjs.com/package/@nuxtjs/dotenv)
+* [Nuxt Composition Api](https://composition-api.nuxtjs.org/)
+* [Vuetify 2](https://vuetifyjs.com/)
+* [Babel](https://babeljs.io/)
+* [Vue Loading Overlay](https://www.browsersync.io/)
+* [ESLint](http://eslint.org/)
+* [Include Media](https://eduardoboucas.github.io/include-media)
+* [SASS](http://sass-lang.com/)
+* [Webpack 2](https://webpack.js.org/)
+* [Yarn](https://yarnpkg.com/en/docs/install)
+
 
 ## Folder structure
 
 | Folder name        | Children           | Goal  |
 | ------------- |:-------------:| -----:|
-| /api     | apiUrl | API URL |
-|       | /services      | Return Axios evocation. Services are loaded in Nuxt as plugins (see more at /plugins/services.js). |
+| /api     | apiUrl | Wrapper Axios Call Methods |
+|/services |      | Return Axios evocation. Services |
 | /assets | /scss      |    |
 |  | /images      |    |
-| /consts | consts      |    |
+|  | /fonts | | 
+| /consts | consts      |  Constant Variable  |
 | /components | .vue      |  Vue component  |
-| /helpers | ApiHandler      |  Builder handling API calls.  |
-|  | CustomError      |  Throw custom error while handling API response to be catched by ApiHandler.  |
-|  | ResponseHelper      |  Builder handling API responses.   |
+| /helpers | Utils      |  Utilty Functions  |
 | /layouts | .vue      |  Nuxt layout. Contains views.  |
+| /middleware | | Nuxt Middleware |
 | /pages | .vue      | View. Rendered inside layout.   |
 | /plugins |    |  Plugins run before instantiating Vue root. Plugins are declared inside nuxt.config.js  |
 | /static |       |     |
 | /store |      | Vuex   |
+| /payloads |  | Mode Data |
 
 ## Build Setup
 
