@@ -17,17 +17,19 @@
 import { computed, ref, useStore } from '@nuxtjs/composition-api'
 
 export default {
-
   setup() {
     const store = useStore()
 
     store.commit('SET_PAGE_TITLE', 'Home')
 
     const loading = ref(false)
+
     const getFetch = () => {
       loading.value = true
+      store.commit('SET_LOADING', true)
       store.dispatch('fetch/getFetch').finally(() => {
         loading.value = false
+        store.commit('SET_LOADING', false)
       })
     }
 

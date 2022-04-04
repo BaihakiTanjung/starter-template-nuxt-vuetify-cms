@@ -1,9 +1,8 @@
-import CustomApi from '@/api/CustomApi'
-const baseUrlSecond = process.env.BASE_URL_SECOND
+import Api from '@/api/Api'
 
 class FetchServices {
   async getFetch(payload) {
-    return await CustomApi.doGet(baseUrlSecond, payload)
+    return await Api.doGet('', payload)
       .then((res) => res)
       .catch((err) => err)
   }
