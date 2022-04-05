@@ -2,7 +2,7 @@
  * Wrapper Axios Methods Api
  */
 
-import { PREFIX } from './ApiUrl.js'
+import { PREFIX } from './ApiUrl'
 
 class Api {
   constructor($axios) {
