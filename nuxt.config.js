@@ -46,6 +46,7 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/composition-api/module',
+    '@nuxtjs/storybook',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
