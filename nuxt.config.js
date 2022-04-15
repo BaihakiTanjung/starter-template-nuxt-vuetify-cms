@@ -46,7 +46,6 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
     '@nuxtjs/composition-api/module',
-    '@nuxtjs/storybook',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -136,6 +135,8 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    transpile: ['vee-validate'],
+  },
   extends: ['@nuxtjs'],
 }

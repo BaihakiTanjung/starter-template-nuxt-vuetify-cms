@@ -19,18 +19,6 @@ export default {
       type: String,
       default: '',
     },
-    appendIcon: {
-      type: String,
-      default: '',
-    },
-    value: {
-      type: String,
-      default: '',
-    },
-    persistentHint: {
-      type: Boolean,
-      default: false,
-    },
     type: {
       type: String,
       default: 'text',

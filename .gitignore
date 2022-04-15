@@ -95,6 +95,7 @@ yarn.lock
 # npm
 package-lock.json
 
+# storybook
 .nuxt-storybook
 storybook-static
 
