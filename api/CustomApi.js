@@ -3,7 +3,7 @@
  */
 
 import axios from 'axios'
-import { PREFIX } from '@/api/ApiUrl.js'
+import { PREFIX } from '~/api/apiUrl.js'
 
 class CustomApi {
   async doGet(url, params) {
