@@ -3,8 +3,6 @@
     <v-text-field
       :type="type"
       :label="label"
-      :append-icon="appendIcon"
-      :value="value"
       v-bind="$attrs"
       :error-messages="errors"
       v-on="$listeners"
