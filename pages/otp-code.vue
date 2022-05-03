@@ -2,7 +2,7 @@
   <section class="otp-code h-100 d-flex justify-center">
     <div class="my-auto">
       <v-container>
-        <BaseCard class="text-center mt-3">
+        <BaseCard class="text-center mt-3 pa-15">
           <div class="otp-code-head">
             <h1 class="display-1 font-weight-bold">Masukkan kode OTP</h1>
             <p class="text-gray mt-3">
@@ -11,11 +11,7 @@
           </div>
           <div class="otp-code-content my-5 mx-8">
             <div class="ma-auto" style="max-width: 350px">
-              <v-otp-input
-                v-model="formValues.otp"
-                type="password"
-                length="6"
-              ></v-otp-input>
+              <v-otp-input v-model="formValues.otp" type="password" length="6"></v-otp-input>
             </div>
           </div>
           <div class="resend my-5">

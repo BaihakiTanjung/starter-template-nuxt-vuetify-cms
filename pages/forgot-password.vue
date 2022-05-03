@@ -2,7 +2,7 @@
   <section class="forgot-password h-100 d-flex justify-center">
     <div class="my-auto">
       <v-container>
-        <BaseCard class="text-center mt-3">
+        <BaseCard class="text-center mt-3 pa-15">
           <div class="forgot-password-head">
             <h1 class="display-1 font-weight-bold">Lupa Password</h1>
             <p class="text-gray mt-3">

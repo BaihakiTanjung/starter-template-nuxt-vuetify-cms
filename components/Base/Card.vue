@@ -1,11 +1,5 @@
 <template>
-  <v-card
-    v-bind="$attrs"
-    :loading="loading"
-    class="pa-15"
-    :width="width"
-    max-width="1000"
-  >
+  <v-card v-bind="$attrs" :loading="loading" :class="className" :width="width" max-width="1000">
     <slot></slot>
   </v-card>
 </template>
@@ -20,6 +14,10 @@ export default {
     elevation: {
       type: Number,
       default: 1,
+    },
+    className: {
+      type: String,
+      default: 'pa-5',
     },
   },
   data() {

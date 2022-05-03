@@ -2,7 +2,7 @@
   <section class="login h-100 d-flex justify-center">
     <div class="my-auto">
       <v-container fluid>
-        <BaseCard :width="width" class="text-center mt-10">
+        <BaseCard :width="width" class="text-center mt-10 pa-15">
           <validation-observer ref="form" v-slot="{ invalid }">
             <form @submit.prevent="handleSubmit">
               <div class="login-head">
