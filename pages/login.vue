@@ -14,53 +14,26 @@
 
               <div class="login-content mt-10 mb-5">
                 <div class="email">
-                  <BaseInput
-                    ref="email"
-                    v-model="login.email"
-                    outlined
-                    label="Email"
-                    placeholder="Masukkan email anda"
-                    prepend-inner-icon="mdi-email"
-                    rules="required|email"
-                    @keyup.enter.native="submitLogin"
-                  ></BaseInput>
+                  <BaseInput ref="email" v-model="login.email" outlined label="Email" placeholder="Masukkan email anda"
+                    prepend-inner-icon="mdi-email" rules="required|email" @keyup.enter.native="submitLogin"></BaseInput>
                 </div>
                 <div class="password">
-                  <BaseInput
-                    ref="password"
-                    v-model="login.password"
-                    outlined
-                    prepend-inner-icon="mdi-lock"
-                    :append-icon="passwordType ? 'mdi-eye' : 'mdi-eye-off'"
-                    :type="passwordType ? 'text' : 'password'"
-                    label="Password"
-                    placeholder="Masukkan password anda"
-                    rules="required"
-                    @click:append="passwordType = !passwordType"
-                    @keyup.enter.native="submitLogin"
-                  >
+                  <BaseInput ref="password" v-model="login.password" outlined prepend-inner-icon="mdi-lock"
+                    :append-icon="passwordType ? 'mdi-eye' : 'mdi-eye-off'" :type="passwordType ? 'text' : 'password'"
+                    label="Password" placeholder="Masukkan password anda" rules="required"
+                    @click:append="passwordType = !passwordType" @keyup.enter.native="submitLogin">
                   </BaseInput>
                 </div>
               </div>
 
               <div class="login-button">
-                <BaseButton
-                  :disabled="invalid"
-                  block
-                  x-large
-                  @click="submitLogin"
-                  >Masuk</BaseButton
-                >
+                <BaseButton :disabled="invalid" block x-large @click="submitLogin">Masuk</BaseButton>
               </div>
 
               <div class="login-footer mt-5 mb-n5">
                 <p>
                   Lupa password?
-                  <nuxt-link
-                    to="/forgot-password"
-                    class="text-primary font-weight-bold"
-                    >Klik di sini</nuxt-link
-                  >
+                  <nuxt-link to="/forgot-password" class="text-primary font-weight-bold">Klik di sini</nuxt-link>
                 </p>
               </div>
             </form>
@@ -71,8 +44,8 @@
   </section>
 </template>
 <script>
-import { reactive, ref, useRouter } from '@nuxtjs/composition-api'
-export default {
+import { reactive, ref, useRouter, defineComponent } from '@nuxtjs/composition-api'
+export default defineComponent({
   layout: 'auth',
   // middleware: 'guest',
   setup() {
@@ -113,5 +86,5 @@ export default {
       }
     },
   },
-}
+})
 </script>

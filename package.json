@@ -16,7 +16,7 @@
   "dependencies": {
     "@nuxtjs/auth-next": "^5.0.0-1648802546.c9880dc",
     "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/composition-api": "^0.32.0",
+    "@nuxtjs/composition-api": "^0.33.0",
     "@nuxtjs/dotenv": "^1.4.1",
     "core-js": "^3.21.1",
     "include-media": "^1.4.10",
