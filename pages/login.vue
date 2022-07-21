@@ -52,8 +52,8 @@ export default defineComponent({
     const router = useRouter()
 
     const login = reactive({
-      email: '',
-      password: '',
+      email: 'testing@gmail.com',
+      password: '12345678',
     })
 
     const passwordType = ref(false)

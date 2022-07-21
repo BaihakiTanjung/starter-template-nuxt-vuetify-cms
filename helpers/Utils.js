@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2'
-import XLSX from 'xlsx'
-import { format, parseISO } from 'date-fns'
+// import XLSX from 'xlsx'
+// import { format, parseISO } from 'date-fns'
 
 const showSuccessPopup = (titleMessage, textMessage) => {
   return Swal.fire({
@@ -43,29 +43,29 @@ const downloadFile = (res, filename, extension) => {
   link.click()
 }
 
-const downloadToExcel = (data, name) => {
-  // export json to Worksheet of Excel
-  // only array possible
-  const dataWS = XLSX.utils.json_to_sheet(data)
+// const downloadToExcel = (data, name) => {
+//   // export json to Worksheet of Excel
+//   // only array possible
+//   const dataWS = XLSX.utils.json_to_sheet(data)
 
-  // A workbook is the name given to an Excel file
-  const wb = XLSX.utils.book_new() // make Workbook of Excel
+//   // A workbook is the name given to an Excel file
+//   const wb = XLSX.utils.book_new() // make Workbook of Excel
 
-  // add Worksheet to Workbook
-  // Workbook contains one or more worksheets
-  XLSX.utils.book_append_sheet(wb, dataWS, name) // sheetAName is name of Worksheet
+//   // add Worksheet to Workbook
+//   // Workbook contains one or more worksheets
+//   XLSX.utils.book_append_sheet(wb, dataWS, name) // sheetAName is name of Worksheet
 
-  // export Excel file
-  XLSX.writeFile(wb, `${name}.xlsx`) // name of the file is 'book.xlsx'
-}
+//   // export Excel file
+//   XLSX.writeFile(wb, `${name}.xlsx`) // name of the file is 'book.xlsx'
+// }
 
-const formatDateSql = (dateParams) => {
-  return format(parseISO(dateParams), 'yyyy-MM-dd HH:mm:ss')
-}
+// const formatDateSql = (dateParams) => {
+//   return format(parseISO(dateParams), 'yyyy-MM-dd HH:mm:ss')
+// }
 
-const formatDateYMD = (dateParams) => {
-  return format(parseISO(dateParams), 'yyyy-MM-dd')
-}
+// const formatDateYMD = (dateParams) => {
+//   return format(parseISO(dateParams), 'yyyy-MM-dd')
+// }
 
 const removeDuplicateArray = (arr) => {
   const s = new Set(arr)
@@ -86,9 +86,9 @@ export {
   showSuccessPopup,
   showFailedPopup,
   showConfirmPopup,
-  downloadToExcel,
-  formatDateSql,
-  formatDateYMD,
+  // downloadToExcel,
+  // formatDateSql,
+  // formatDateYMD,
   removeDuplicateArray,
   formatCurrency,
   downloadFile,

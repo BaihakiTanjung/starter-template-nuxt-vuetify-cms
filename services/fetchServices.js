@@ -1,10 +1,10 @@
 import Api from '~/api/api.js'
 
 class FetchServices {
-  async getFetch(payload) {
-    return await Api.doGet('', payload)
-      .then((res) => res)
-      .catch((err) => err)
+  async GetFetch({ request }) {
+    const res = await Api.doGet(``, request)
+    console.debug('GET FETCH', res)
+    return res
   }
 }
 

@@ -1,4 +1,5 @@
 import fetchServices from '~/services/fetchServices'
+import { showFailedPopup } from '@/helpers/Utils'
 
 export const state = () => ({
   items: '',
@@ -15,17 +16,15 @@ export const mutations = {
 }
 
 export const actions = {
-  getFetch(context, payload) {
-    return new Promise((resolve, reject) => {
-      fetchServices
-        .getFetch(payload)
-        .then((res) => {
-          context.commit('SET_ITEMS', res)
-          resolve(res)
-        })
-        .catch((err) => {
-          reject(err)
-        })
-    })
+  async getFetch(context, payload) {
+    try {
+      const res = await fetchServices.GetFetch({})
+      context.commit('SET_ITEMS', res)
+      return res
+    } catch (error) {
+      showFailedPopup({ msg: error })
+      console.error(error)
+      throw error
+    }
   },
 }
