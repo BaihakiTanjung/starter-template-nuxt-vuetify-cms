@@ -9,24 +9,16 @@
               Masukkan email anda untuk mendapat link untuk merubah password
             </p>
           </div>
-          <validation-observer ref="form" v-slot="{ invalid }">
+          <validation-observer ref="observer">
             <form @submit.prevent="handleSubmit">
               <div class="forgot-password-content mt-10 mb-1">
                 <div class="email">
-                  <BaseInput
-                    v-model="formValues.email"
-                    prepend-inner-icon="mdi-email"
-                    outlined
-                    label="Email"
-                    rules="required|email"
-                    placeholder="Masukkan email anda"
-                  ></BaseInput>
+                  <BaseInput v-model="formValues.email" name="Email" prepend-inner-icon="mdi-email" outlined
+                    rules="required|email" placeholder="Email*"></BaseInput>
                 </div>
               </div>
               <div class="forgot-password-button">
-                <BaseButton :disabled="invalid" block x-large @click="submit"
-                  >Kirim</BaseButton
-                >
+                <BaseButton type="submit" block x-large>Kirim</BaseButton>
               </div>
             </form>
           </validation-observer>
@@ -36,7 +28,7 @@
   </section>
 </template>
 <script>
-import { reactive, useRouter } from '@nuxtjs/composition-api'
+import { reactive, useRouter, ref } from '@nuxtjs/composition-api'
 export default {
   layout: 'auth',
   setup() {
@@ -46,13 +38,17 @@ export default {
       email: '',
     })
 
-    const submit = () => {
+    const observer = ref(null)
+    const handleSubmit = async () => {
+      const isValid = await observer.value.validate();
+      if (!isValid) return;
       router.push('/otp-code')
     }
 
     return {
       formValues,
-      submit,
+      handleSubmit,
+      observer
     }
   },
 }

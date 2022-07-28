@@ -1,5 +1,5 @@
 <template>
-  <validation-provider v-slot="{ errors }" :name="label" :rules="rules">
+  <validation-provider v-slot="{ errors }" :name="name" :rules="rules">
     <label v-if="label" for="">{{ label }}</label>
     <v-text-field solo :type="type" :label="label" v-bind="$attrs" :error-messages="errors" v-on="$listeners">
     </v-text-field>
@@ -19,6 +19,10 @@ export default {
     },
     rules: {
       type: [String, Array],
+      default: '',
+    },
+    name: {
+      type: String,
       default: '',
     },
   },

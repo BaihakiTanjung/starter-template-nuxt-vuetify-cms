@@ -111,6 +111,7 @@ export default {
     treeShake: true,
     theme: {
       dark: false,
+      options: { customProperties: true },
       themes: {
         light: {
           primary: '#1869ac',

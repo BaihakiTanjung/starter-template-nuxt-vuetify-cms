@@ -1,8 +1,8 @@
 // Variable
-$primary: #1869ac;
-$secondary: #00dc82;
-$accent: #00bcd4;
-$warning: #ffc107;
-$info: #009688;
-$success: #4caf50;
+$primary: var(--v-primary-base);
+$secondary: var(--v-secondary-base);
+$accent: var(--v-accent-base);
+$warning: var(--v-warning-base);
+$info: var(--v-info-base);
+$success: var(--v-success-base);
 $gray: #8798ad;

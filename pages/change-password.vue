@@ -9,35 +9,22 @@
               Masukkan password baru anda untuk mengganti password lama anda
             </p>
           </div>
-          <validation-observer ref="form" v-slot="{ invalid }">
+          <validation-observer ref="observer">
             <form @submit.prevent="handleSubmit">
               <div class="change-password-content mt-5 mb-1">
                 <div class="email">
-                  <BaseInput
-                    v-model="formValues.password"
-                    outlined
-                    rules="required"
-                    prepend-inner-icon="mdi-lock"
-                    label="Password"
-                    placeholder="Masukkan password anda"
-                  ></BaseInput>
+                  <BaseInput v-model="formValues.password" name="Password" outlined rules="required"
+                    prepend-inner-icon="mdi-lock" placeholder="Password*"></BaseInput>
                 </div>
                 <div class="password">
-                  <BaseInput
-                    v-model="formValues.confirmPassword"
-                    outlined
-                    rules="required"
-                    prepend-inner-icon="mdi-lock"
-                    label="Konfirmasi Password"
-                    placeholder="Masukkan konfirm password anda"
-                  ></BaseInput>
+                  <BaseInput v-model="formValues.confirmPassword" name="Confirm Password" outlined
+                    rules="required|confirmed:Password" prepend-inner-icon="mdi-lock" placeholder="Confirm Password*">
+                  </BaseInput>
                 </div>
               </div>
 
               <div class="change-password-button">
-                <BaseButton :disabled="invalid" x-large block @click="submit"
-                  >Submit</BaseButton
-                >
+                <BaseButton x-large block type="submit">Submit</BaseButton>
               </div>
             </form>
           </validation-observer>
@@ -47,7 +34,7 @@
   </section>
 </template>
 <script>
-import { reactive, useRouter } from '@nuxtjs/composition-api'
+import { reactive, useRouter, ref } from '@nuxtjs/composition-api'
 export default {
   layout: 'auth',
   setup() {
@@ -56,14 +43,17 @@ export default {
       password: '',
       confirmPassword: '',
     })
-
-    const submit = () => {
+    const observer = ref(null)
+    const handleSubmit = async () => {
+      const isValid = await observer.value.validate();
+      if (!isValid) return;
       router.push('/auth/home')
     }
 
     return {
       formValues,
-      submit,
+      handleSubmit,
+      observer
     }
   },
 }

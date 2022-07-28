@@ -1,5 +1,5 @@
 import { extend, ValidationObserver, ValidationProvider } from 'vee-validate'
-import { required, email } from 'vee-validate/dist/rules'
+import { required, email, confirmed } from 'vee-validate/dist/rules'
 
 import Vue from 'vue'
 Vue.component('ValidationProvider', ValidationProvider)
@@ -13,4 +13,9 @@ extend('required', {
 extend('email', {
   ...email,
   message: 'Email harus valid',
+})
+
+extend('confirmed', {
+  ...confirmed,
+  message: 'Konfirmasi password tidak sama',
 })

@@ -3,8 +3,8 @@
     <div class="my-auto">
       <v-container fluid>
         <BaseCard :width="width" class="mt-10 pa-15">
-          <validation-observer ref="form" v-slot="{ invalid }">
-            <form @submit.prevent="handleSubmit">
+          <validation-observer ref="observer" slim>
+            <form @submit.prevent="handleSubmit(invalid)">
               <div class="login-head text-center">
                 <h1 class="display-1 font-weight-bold">Selamat Datang</h1>
                 <p class="text-gray font-weight-light mt-2">
@@ -14,20 +14,21 @@
 
               <div class="login-content mt-10 mb-5">
                 <div class="email">
-                  <BaseInput id="email" ref="email" v-model="login.email" placeholder="Email*"
-                    prepend-inner-icon="mdi-email" rules="required|email" @keyup.enter.native="submitLogin"></BaseInput>
+                  <BaseInput id="email" v-model="login.email" name="Email" placeholder="Email*"
+                    prepend-inner-icon="mdi-email" rules="required|email" @keyup.enter.native="handleSubmit()">
+                  </BaseInput>
                 </div>
                 <div class="password">
-                  <BaseInput id="password" ref="password" v-model="login.password" prepend-inner-icon="mdi-lock"
+                  <BaseInput id="password" v-model="login.password" name="Password" prepend-inner-icon="mdi-lock"
                     :append-icon="passwordType ? 'mdi-eye' : 'mdi-eye-off'" :type="passwordType ? 'text' : 'password'"
                     placeholder="Password*" rules="required" @click:append="passwordType = !passwordType"
-                    @keyup.enter.native="submitLogin">
+                    @keyup.enter.native="handleSubmit()">
                   </BaseInput>
                 </div>
               </div>
 
               <div class="login-button">
-                <BaseButton :disabled="invalid" block x-large @click="submitLogin">Masuk</BaseButton>
+                <BaseButton block x-large type="submit">Masuk</BaseButton>
               </div>
 
               <div class="login-footer mt-5 mb-n5 text-center">
@@ -58,33 +59,19 @@ export default defineComponent({
 
     const passwordType = ref(false)
 
-    const submitLogin = () => {
+    const observer = ref(null)
+    const handleSubmit = async () => {
+      const isValid = await observer.value.validate();
+      if (!isValid) return;
       router.push('/auth/home')
     }
 
     return {
       login,
       passwordType,
-      submitLogin,
+      handleSubmit,
+      observer
     }
-  },
-
-  computed: {
-    // eslint-disable-next-line vue/return-in-computed-property
-    width() {
-      switch (this.$vuetify.breakpoint.name) {
-        case 'xs':
-          return 320
-        case 'sm':
-          return 400
-        case 'md':
-          return 600
-        case 'lg':
-          return 600
-        case 'xl':
-          return 700
-      }
-    },
   },
 })
 </script>
