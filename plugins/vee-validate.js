@@ -1,9 +1,15 @@
-import { extend, ValidationObserver, ValidationProvider } from 'vee-validate'
+import {
+  extend,
+  ValidationObserver,
+  ValidationProvider,
+  setInteractionMode,
+} from 'vee-validate'
 import { required, email, confirmed } from 'vee-validate/dist/rules'
-
 import Vue from 'vue'
 Vue.component('ValidationProvider', ValidationProvider)
 Vue.component('ValidationObserver', ValidationObserver)
+
+setInteractionMode('lazy')
 
 extend('required', {
   ...required,

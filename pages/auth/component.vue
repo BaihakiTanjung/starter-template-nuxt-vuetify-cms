@@ -2,7 +2,7 @@
 <template>
   <div class="component">
     <v-row>
-      <v-col md="6">
+      <v-col cols="12" md="6">
         <div>
           <h3>Dialog</h3>
           <hr class="my-3">
@@ -17,7 +17,7 @@
           </v-row>
         </div>
       </v-col>
-      <v-col md="6">
+      <v-col cols="12" md="6">
         <div>
           <h3>Button</h3>
           <hr class="my-3">
@@ -25,7 +25,7 @@
           <BaseButton>Test</BaseButton>
         </div>
       </v-col>
-      <v-col md="6">
+      <v-col cols="12" md="6">
         <div>
           <h3>Card</h3>
           <hr class="my-3">
@@ -33,7 +33,7 @@
           <BaseCard>Test</BaseCard>
         </div>
       </v-col>
-      <v-col md="6">
+      <v-col cols="12" md="6">
         <div>
           <h3>Input</h3>
           <hr class="my-3">
@@ -41,7 +41,7 @@
           <BaseInput></BaseInput>
         </div>
       </v-col>
-      <v-col md="6">
+      <v-col cols="12" md="6">
         <div>
           <h3>Select</h3>
           <hr class="my-3">
@@ -49,7 +49,7 @@
           <BaseSelect></BaseSelect>
         </div>
       </v-col>
-      <v-col md="6">
+      <v-col cols="12" md="6">
         <div>
           <h3>Table</h3>
           <hr class="my-3">
@@ -58,11 +58,6 @@
         </div>
       </v-col>
     </v-row>
-
-
-
-
-
   </div>
 </template>
 <script>
