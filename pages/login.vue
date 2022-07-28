@@ -2,10 +2,10 @@
   <section class="login h-100 d-flex justify-center">
     <div class="my-auto">
       <v-container fluid>
-        <BaseCard :width="width" class="text-center mt-10 pa-15">
+        <BaseCard :width="width" class="mt-10 pa-15">
           <validation-observer ref="form" v-slot="{ invalid }">
             <form @submit.prevent="handleSubmit">
-              <div class="login-head">
+              <div class="login-head text-center">
                 <h1 class="display-1 font-weight-bold">Selamat Datang</h1>
                 <p class="text-gray font-weight-light mt-2">
                   Masukkan email dan password anda untuk mengakses akun anda
@@ -14,14 +14,14 @@
 
               <div class="login-content mt-10 mb-5">
                 <div class="email">
-                  <BaseInput ref="email" v-model="login.email" outlined label="Email" placeholder="Masukkan email anda"
+                  <BaseInput id="email" ref="email" v-model="login.email" placeholder="Email*"
                     prepend-inner-icon="mdi-email" rules="required|email" @keyup.enter.native="submitLogin"></BaseInput>
                 </div>
                 <div class="password">
-                  <BaseInput ref="password" v-model="login.password" outlined prepend-inner-icon="mdi-lock"
+                  <BaseInput id="password" ref="password" v-model="login.password" prepend-inner-icon="mdi-lock"
                     :append-icon="passwordType ? 'mdi-eye' : 'mdi-eye-off'" :type="passwordType ? 'text' : 'password'"
-                    label="Password" placeholder="Masukkan password anda" rules="required"
-                    @click:append="passwordType = !passwordType" @keyup.enter.native="submitLogin">
+                    placeholder="Password*" rules="required" @click:append="passwordType = !passwordType"
+                    @keyup.enter.native="submitLogin">
                   </BaseInput>
                 </div>
               </div>
@@ -30,7 +30,7 @@
                 <BaseButton :disabled="invalid" block x-large @click="submitLogin">Masuk</BaseButton>
               </div>
 
-              <div class="login-footer mt-5 mb-n5">
+              <div class="login-footer mt-5 mb-n5 text-center">
                 <p>
                   Lupa password?
                   <nuxt-link to="/forgot-password" class="text-primary font-weight-bold">Klik di sini</nuxt-link>
@@ -52,8 +52,8 @@ export default defineComponent({
     const router = useRouter()
 
     const login = reactive({
-      email: 'testing@gmail.com',
-      password: '12345678',
+      email: '',
+      password: '',
     })
 
     const passwordType = ref(false)

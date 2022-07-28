@@ -1,12 +1,8 @@
 <template>
   <validation-provider v-slot="{ errors }" :name="label" :rules="rules">
-    <v-text-field
-      :type="type"
-      :label="label"
-      v-bind="$attrs"
-      :error-messages="errors"
-      v-on="$listeners"
-    ></v-text-field>
+    <label v-if="label" for="">{{ label }}</label>
+    <v-text-field solo :type="type" :label="label" v-bind="$attrs" :error-messages="errors" v-on="$listeners">
+    </v-text-field>
   </validation-provider>
 </template>
 <script>
