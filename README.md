@@ -52,6 +52,8 @@ https://github.com/BaihakiTanjung/Aturan-Pengembangan-Aplikasi
 # install dependencies
 $ yarn install
 
+$ rename env.example to env
+
 # serve with hot reload at localhost:3000
 $ yarn dev
 
@@ -61,6 +63,9 @@ $ yarn start
 
 # generate static project
 $ yarn generate
+
+
+
 ```
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
