@@ -1,4 +1,4 @@
-import Api from '~/api/api.js'
+import Api from '~/api/Api.js'
 
 class FetchServices {
   async GetFetch({ request }) {
