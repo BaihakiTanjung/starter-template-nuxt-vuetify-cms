@@ -9,25 +9,33 @@ export const state = () => ({
       to: '/auth/about',
       icon: 'mdi-form-dropdown',
       children: [
-        { title: 'Dropdown 1', to: '/auth/home', icon: 'mdi-form-dropdown' },
+        {
+          title: 'Dropdown 1',
+          to: '/auth/dropdown/1',
+          icon: 'mdi-form-dropdown',
+        },
         {
           title: 'Dropdown 2',
-          to: '/auth/home',
+          to: '/auth/dropdown/2',
           icon: 'mdi-form-dropdown',
           children: [
             {
               title: 'Dropdown 2.1',
-              to: '/auth/home',
+              to: '/auth/dropdown/21',
               icon: 'mdi-form-dropdown',
             },
             {
               title: 'Dropdown 2.2',
-              to: '/auth/home',
+              to: '/auth/dropdown/22',
               icon: 'mdi-form-dropdown',
             },
           ],
         },
-        { title: 'Dropdown 3', to: '/auth/home', icon: 'mdi-form-dropdown' },
+        {
+          title: 'Dropdown 3',
+          to: '/auth/dropdown/3',
+          icon: 'mdi-form-dropdown',
+        },
       ],
     },
   ],
