@@ -57,8 +57,7 @@ export default {
     '@nuxtjs/style-resources',
   ],
 
-  ssr: false,
-  target: 'static',
+  target: 'spa',
 
   auth: {
     strategies: {
@@ -133,6 +132,11 @@ export default {
         },
       },
     },
+  },
+
+  transition: {
+    name: 'page',
+    mode: 'out-in',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

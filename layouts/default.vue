@@ -8,7 +8,9 @@
 
     <v-main>
       <v-container>
-        <router-view></router-view>
+        <transition name="layout" mode='out-in'>
+          <router-view></router-view>
+        </transition>
       </v-container>
     </v-main>
   </v-app>
