@@ -23,7 +23,6 @@ export const actions = {
       return res
     } catch (error) {
       showFailedPopup({ msg: error })
-      console.error(error)
       throw error
     }
   },

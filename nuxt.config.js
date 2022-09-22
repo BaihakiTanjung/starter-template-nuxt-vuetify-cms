@@ -57,6 +57,7 @@ export default {
     '@nuxtjs/style-resources',
   ],
 
+  ssr: false,
   target: 'spa',
 
   auth: {

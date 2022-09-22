@@ -61,7 +61,7 @@ export default {
       this.drawer = val
     },
     logout() {
-      console.log('logout')
+      // console.log('logout')
     },
   },
 }
