@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  starter-nuxt:
+    build: .
+    container_name: starter-nuxt
+    restart: unless-stopped
+    networks:
+      - starter-nuxt
+    command: 'npm run start'
+
+
+  nginx:
+    image: nginx:alpine
+    container_name: starter-nuxt
+    restart: unless-stopped
+    ports:
+      - 3010:3010
+    volumes:
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+    networks:
+      - starter-nuxt
+
+networks:
+  starter-nuxt:
+    driver: bridge

@@ -120,4 +120,34 @@ This directory contains your Vuex store files. Creating a file in this directory
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
 
 
+### `docker`
+
+
+Docker compose
+
+```bash
+docker-compose up --build -d
+```
+
+
+Running docker in local
+
+```bash
+docker run -it -p 3000:3000 starter-nuxt
+```
+
+Running docker in development
+
+```bash
+docker run -it -p 3000:3000 -e NODE_ENV=development starter-nuxt
+```
+
+Running docker in production
+
+```bash
+docker run -it -p 3000:3000 -e NODE_ENV=production starter-nuxt
+```
+
+
+
 
